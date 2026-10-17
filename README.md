@@ -8,6 +8,8 @@ I turn operational problems into practical applications, with a focus on clear i
 
 ## Featured projects
 
+[Cited Change Analyzer](https://github.com/bullyopswork/cited-change-analyzer): compare historical regulations with cited AI findings and a reproducible evaluation.
+
 ### 1. [Service Intake Workbench](https://github.com/bullyopswork/service-intake-workbench)
 
 **Problem:** service requests need a clear owner, next step and history.
