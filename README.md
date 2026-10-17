@@ -8,7 +8,7 @@ I turn operational problems into practical applications, with a focus on clear i
 
 ## Featured projects
 
-[Cited Change Analyzer](https://github.com/bullyopswork/cited-change-analyzer): compare historical regulations with cited AI findings and a reproducible evaluation.
+[Cited Change Analyzer](https://github.com/bullyopswork/cited-change-analyzer): compare TXT and PDF documents locally, inspect exact source passages and export reports. [Demo](https://bullyopswork.github.io/cited-change-analyzer/) · [Install](https://github.com/bullyopswork/cited-change-analyzer/releases/tag/v0.2.0).
 
 ### 1. [Service Intake Workbench](https://github.com/bullyopswork/service-intake-workbench)
 
