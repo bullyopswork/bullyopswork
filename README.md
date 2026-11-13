@@ -1,83 +1,69 @@
-# Eduardo Hernandez
+# Ed Hernandez
 
-### Web Applications & Workflow Automation
+### Software, workflow automation and observable systems
 
-I turn operational problems into practical applications, with a focus on clear interfaces, reliable data and traceable decisions.
+I turn operational problems into practical applications, with clear interfaces, traceable decisions and reproducible checks. My work combines operations experience with AI assisted development.
 
-**Focus:** full-stack web applications · AI/workflow automation · software quality and application troubleshooting
+[Explore the selected projects below](#selected-work) · [All repositories](https://github.com/bullyopswork?tab=repositories)
 
-## Featured projects
+## Selected work
 
-[Cited Change Analyzer](https://github.com/bullyopswork/cited-change-analyzer): compare TXT and PDF documents locally, inspect exact source passages and export reports. [Demo](https://bullyopswork.github.io/cited-change-analyzer/) · [Install](https://github.com/bullyopswork/cited-change-analyzer/releases/tag/v0.2.0).
+### 1. [Azure Recovery Lab](https://github.com/bullyopswork/azure-recovery-lab)
 
-### 1. [Service Intake Workbench](https://github.com/bullyopswork/service-intake-workbench)
+**Can a cloud service detect an unhealthy process and recover without a manual restart?**
 
-**Problem:** service requests need a clear owner, next step and history.
+A Python service, container health probes, Terraform and GitHub OIDC make the experiment observable. One controlled Azure trial recovered to a different healthy process in the same replica. The **43.158 second** measurement includes CLI setup and polling, not just restart time. All temporary lab infrastructure and scoped permissions were independently verified removed. Final billing remains unposted.
 
-A full-stack service desk that takes a request from public intake through staff assignment, work and resolution. PostgreSQL stores the workflow and activity trail; signed partner ingestion handles repeated events without creating duplicate requests.
+**Decision:** use one replica and a fault bound to one boot identity, so downtime and the platform's restart can be distinguished from a redeployment.
 
-**Stack:** Next.js · React · TypeScript · PostgreSQL
+[28 second recorded data replay](https://github.com/bullyopswork/azure-recovery-lab/blob/main/demo/Recovery-Results.mp4) · [Evidence](https://github.com/bullyopswork/azure-recovery-lab/blob/main/docs/EVIDENCE.md) · [Source](https://github.com/bullyopswork/azure-recovery-lab)
+
+### 2. [Cited Change Analyzer](https://github.com/bullyopswork/cited-change-analyzer)
+
+**What changed in these documents, and where is the supporting text?**
+
+An installable Python and TypeScript tool for local TXT and selectable text PDF comparisons, exact citations, PDF page provenance and report exports. The released package includes its browser interface. Local comparison needs no API key; optional AI uses the installer's own key with explicit consent.
+
+**Decision:** keep source alignment separate from AI explanation, and preserve local findings if a provider fails. The public demo is a static example archive, not an upload service.
+
+[Example archive](https://bullyopswork.github.io/cited-change-analyzer/) · [Install v0.2](https://github.com/bullyopswork/cited-change-analyzer/releases/tag/v0.2.0) · [34 document checks](https://github.com/bullyopswork/cited-change-analyzer/blob/main/data/evaluation/local-documents-v02.json)
+
+<img src="https://raw.githubusercontent.com/bullyopswork/cited-change-analyzer/main/docs/screenshots/local-desktop.png" width="760" alt="Local document comparison with exact source highlights">
+
+### 3. [Service Intake Workbench](https://github.com/bullyopswork/service-intake-workbench)
+
+**How does a public request become traceable staff work without duplicate ingestion?**
+
+A deployed Next.js, React, TypeScript and PostgreSQL application with intake, assignment, resolution, activity history and signed webhook ingestion. The public walkthrough uses fictional information and isolated demo workspaces, not real customer operations.
+
+**Decision:** serialize webhook replay keys in a database transaction, and commit workflow changes with their activity events. The demo dispatcher role is not production authentication.
 
 [Live demo](https://service-intake-workbench.vercel.app/) · [Source](https://github.com/bullyopswork/service-intake-workbench) · [Integration checks](https://github.com/bullyopswork/service-intake-workbench/actions)
 
-<img src="assets/service-intake-workbench.png" width="760" alt="Service Intake Workbench demo showing a staff request inbox and request details">
+<img src="assets/service-intake-workbench.png" width="760" alt="Fictional service request inbox and request detail workspace">
 
-### 2. [TracePilot Review Console](https://github.com/bullyopswork/tracepilot-review-console)
+### 4. [Closeout: Proof of Handoff](https://github.com/bullyopswork/closeout-proof-of-handoff)
 
-**Problem:** an AI answer can sound useful while missing the task's requirements.
+**How do we keep stale evidence from becoming false completion?**
 
-A full-stack review workspace for inspecting traces, checking constraints, recording a human decision and comparing before/after results. Its interactive walkthrough uses synthetic traces and deterministic checks, keeping evaluation separate from the original live-agent integration below.
+A responsive JavaScript interface for reviewing synthetic construction evidence, staging a precise proposal and requiring a visible human decision before one time application. The ordinary browser demo shows Preview mode; full application uses a compatible WebMCP surface.
 
-**Stack:** Next.js · React · TypeScript · PostgreSQL
+**Decision:** bind approval to the exact payload, page generation and evidence, then reject token replay. Unresolved exceptions keep handoff blocked.
 
-[Live demo](https://tracepilot-review-console.vercel.app/) · [Source](https://github.com/bullyopswork/tracepilot-review-console) · [API tests](https://github.com/bullyopswork/tracepilot-review-console/blob/main/tests/api.test.ts)
+[Live preview](https://closeout-proof-of-handoff.vercel.app/) · [Walkthrough](https://youtu.be/juAD0BmmExc) · [Browser proof](https://github.com/bullyopswork/closeout-proof-of-handoff/blob/main/VERIFICATION.md)
 
-<img src="assets/tracepilot-review-console.png" width="760" alt="TracePilot Review Console demo showing a synthetic run, missed constraints and its review score">
+## More work
 
-### 3. [Closeout: Proof of Handoff](https://github.com/bullyopswork/closeout-proof-of-handoff)
+1. [TracePilot Review Console](https://github.com/bullyopswork/tracepilot-review-console): a synthetic full stack review workspace, separate from live agent execution. [Demo](https://tracepilot-review-console.vercel.app/).
+2. [TracePilot](https://github.com/bullyopswork/tracepilot): Python agent diagnostics with Google ADK, Gemini and Phoenix tracing. [Proof workflow](https://github.com/bullyopswork/tracepilot/blob/main/proof_gate/README.md).
+3. [Excel Payment Reconciliation](https://github.com/bullyopswork/excel-payment-reconciliation): a reproducible Python workflow for cleaning exports, matching payments and flagging exceptions in a sample workbook.
 
-**Problem:** stale or mislinked evidence can make unfinished work look complete.
+## Private business application
 
-A responsive JavaScript evidence-review workflow with explicit human approval, guarded state transitions and an auditable handoff. Browser regression tests exercise the interface and workflow boundaries.
-
-**Stack:** JavaScript · HTML/CSS · Web Crypto · Playwright
-
-[Live demo](https://closeout-proof-of-handoff.vercel.app/) · [Source](https://github.com/bullyopswork/closeout-proof-of-handoff) · [Browser tests](https://github.com/bullyopswork/closeout-proof-of-handoff/blob/main/tests/run-production-regression.mjs) · [Walkthrough](https://youtu.be/juAD0BmmExc)
-
-### 4. [TracePilot](https://github.com/bullyopswork/tracepilot)
-
-**Problem:** troubleshooting an agent requires evidence of what its tools and model actually did.
-
-A Python agent/operator demonstration integrating Google ADK, Gemini and Phoenix tracing. It retrieves trace evidence, checks task outcomes and produces a diagnosis with a refined next task.
-
-**Stack:** Python · Google ADK · Gemini · OpenInference/Phoenix · MCP
-
-[Source and setup](https://github.com/bullyopswork/tracepilot) · [Proof workflow](https://github.com/bullyopswork/tracepilot/blob/main/proof_gate/README.md)
-
-### 5. [Excel Cleanup & Payment Reconciliation](https://github.com/bullyopswork/excel-payment-reconciliation)
-
-**Problem:** messy order and payment exports obscure discrepancies and create manual rework.
-
-A Python workflow that cleans exports, matches payments, flags exceptions and generates a five-sheet Excel workbook. A reproducible fixture test checks totals, row counts and workbook structure.
-
-**Stack:** Python · openpyxl · CSV/Excel · unittest
-
-[Source and sample workbook](https://github.com/bullyopswork/excel-payment-reconciliation) · [Validation test](https://github.com/bullyopswork/excel-payment-reconciliation/blob/main/tests/test_excel_project.py)
-
-## Business application case study
-
-### All County Court Notification App
-
-A court-notification application designed to combine court-notice intake, case/document matching, staff review and automated SMS/email reminders for defendants and co-signers.
-
-**Product focus:** document-processing workflows · evidence matching · human review · notification automation
-
-Private-source business application; this case study describes the intended product design.
+**All County Court Notification App:** built and deployed a Node.js, TypeScript, PostgreSQL and Prisma application for court notice intake, document extraction, case evidence and staff review. Delivered a six page dashboard with protected access, an audit trail and Twilio notification integration. Source and client records remain private.
 
 ## How I work
 
-I combine operations experience with AI-assisted development, clear workflow design and reproducible checks. Public walkthroughs use demo data; each repository documents its implementation, scope and verification steps.
+I use AI tools during development and review. The repositories show the resulting implementation and verification; ownership is not a claim that every line was personally handwritten. Demonstrations, local checks, agent reviewed evaluations and live cloud results are labeled separately.
 
-Interested in opportunities across web development, workflow automation, QA and application support.
-
-[Browse all public repositories](https://github.com/bullyopswork?tab=repositories)
+Interested in web development, workflow automation, QA and application support. Explore a project, inspect its evidence and [find me on GitHub](https://github.com/bullyopswork).
