@@ -4,7 +4,7 @@
 
 I turn operational problems into practical applications, with clear interfaces, traceable decisions and reproducible checks. My work combines operations experience with AI assisted development.
 
-[Explore the selected projects below](#selected-work) · [All repositories](https://github.com/bullyopswork?tab=repositories)
+[Portfolio and project stories](https://ed-hernandez-portfolio.ed3396.chatgpt.site/) · [Project résumé](https://ed-hernandez-portfolio.ed3396.chatgpt.site/resume.html) · [All repositories](https://github.com/bullyopswork?tab=repositories)
 
 ## Selected work
 
